@@ -46,8 +46,8 @@ public class LofinTest {
         email = "lkek58153@gmail.com";
         password = "gfl2dasa";
         emailOfRecipient = "farit.valiahmetov@simbirsoft.com";
-        loginStep.test(email, password);
-        mailStep.test(newMailStep.test(), emailOfRecipient);
+        loginStep.accountLogin(email, password);
+        mailStep.fillingSectionsOfLetter(newMailStep.createNewLetter(), emailOfRecipient);
     }
 
     @AfterClass

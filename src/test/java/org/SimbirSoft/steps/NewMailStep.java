@@ -18,7 +18,7 @@ public class NewMailStep {
     }
 
     @Step("Создание нового письма")
-    public String test() {
+    public String  createNewLetter() {
         numberOfMails = profilePage.countTheMails();
         profilePage.clickNewMailBtn();
         return numberOfMails;

@@ -20,7 +20,7 @@ public class LoginStep {
     }
 
     @Step("Вход в аккаунт")
-    public void test(String email, String password) {
+    public void accountLogin(String email, String password) {
         loginPage.inputLogin(email);
         loginPage.clickLoginBtn();
         passwordPage.inputPasswd(password);

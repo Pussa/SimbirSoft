@@ -14,10 +14,10 @@ public class NewMailPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@aria-label=\"Кому\"]")
+    @FindBy(xpath = "//*[@name=\"to\"]")
     private WebElement recipient;
 
-    @FindBy(xpath = "//*[@aria-label=\"Тема\"]")
+    @FindBy(xpath = "//*[@class=\"aoT\"]")
     private WebElement theme;
 
     @FindBy(xpath = "//*[@class=\"Am Al editable LW-avf tS-tW\"]")
@@ -26,7 +26,7 @@ public class NewMailPage {
     @FindBy(xpath = "//*[@class = \"T-I J-J5-Ji aoO v7 T-I-atl L3\"]")
     private WebElement sendBtn;
 
-    @FindBy(xpath = "//*[@aria-label =\"Во весь экран (Shift для всплывающего окна)\"]")
+    @FindBy(xpath = "//*[@class =\"Hq aUG\"]")
     private WebElement bsBtn;
 
     public void clickSendBtn() {

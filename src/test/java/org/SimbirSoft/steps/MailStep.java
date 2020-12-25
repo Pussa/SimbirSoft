@@ -22,7 +22,7 @@ public class MailStep {
     }
 
     @Step("Заполнение полей письма и его отправка")
-    public void test(String numberOfMails, String emailOfRecipient) {
+    public void fillingSectionsOfLetter(String numberOfMails, String emailOfRecipient) {
         newMailPage.clickbsBtn();
         newMailPage.inputRecipient(emailOfRecipient);
         newMailPage.inputTheme("Тестовое задание. Цаценко");
