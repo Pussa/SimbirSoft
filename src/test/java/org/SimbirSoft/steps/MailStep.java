@@ -25,7 +25,7 @@ public class MailStep {
     public void fillingSectionsOfLetter(String numberOfMails, String emailOfRecipient) {
         newMailPage.clickbsBtn();
         newMailPage.inputRecipient(emailOfRecipient);
-        newMailPage.inputTheme("Тестовое задание. Цаценко");
+        newMailPage.inputTheme("Simbirsoft theme");
         newMailPage.inputMessage("Найденное количество писем: " + numberOfMails);
         newMailPage.clickSendBtn();
         wait.until(ExpectedConditions.textToBe(By.className("bAq"), "Письмо отправлено."));

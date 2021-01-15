@@ -21,7 +21,7 @@ public class ProfilePage {
     private WebElement newMailBtn;
 
     public String countTheMails() {
-        List<WebElement> mails = driver.findElements(By.xpath("//*[@name =\"farit.valiahmetov\"]"));
+        List<WebElement> mails = driver.findElements(By.xpath("//span[text()=\"Simbirsoft theme\"]"));
         return Integer.toString(mails.size()/2);
     }
 

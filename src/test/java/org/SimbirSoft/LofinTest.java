@@ -7,9 +7,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -27,13 +27,7 @@ public class LofinTest {
     @BeforeClass
     public static void setup() throws NullPointerException {
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
-        try {
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setBrowserName("chrome");
-            webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginStep = new LoginStep(webDriver);
         newMailStep = new NewMailStep(webDriver);
@@ -43,9 +37,9 @@ public class LofinTest {
 
     @Test
     public void test() {
-        email = "lkek58153@gmail.com";
+        email = "kekl26458@gmail.com";
         password = "gfl2dasa";
-        emailOfRecipient = "farit.valiahmetov@simbirsoft.com";
+        emailOfRecipient = "kekl26458@gmail.com";
         loginStep.accountLogin(email, password);
         mailStep.fillingSectionsOfLetter(newMailStep.createNewLetter(), emailOfRecipient);
     }
@@ -56,3 +50,11 @@ public class LofinTest {
     }
 }
 
+//Selenium Grid
+  /*  try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setBrowserName("chrome");
+            webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }*/
