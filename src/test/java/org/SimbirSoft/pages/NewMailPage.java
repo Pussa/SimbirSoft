@@ -14,16 +14,16 @@ public class NewMailPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@name=\"to\"]")
+    @FindBy(name = "to")
     private WebElement recipient;
 
-    @FindBy(xpath = "//*[@class=\"aoT\"]")
+    @FindBy(name = "subjectbox")
     private WebElement theme;
 
-    @FindBy(xpath = "//*[@class=\"Am Al editable LW-avf tS-tW\"]")
+    @FindBy(xpath = "//*[@role=\"textbox\"]")
     private WebElement message;
 
-    @FindBy(xpath = "//*[@class = \"T-I J-J5-Ji aoO v7 T-I-atl L3\"]")
+    @FindBy(xpath = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]")
     private WebElement sendBtn;
 
     @FindBy(xpath = "//*[@class =\"Hq aUG\"]")

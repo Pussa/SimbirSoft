@@ -1,5 +1,6 @@
 package org.SimbirSoft.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,9 +16,9 @@ public class LoginPage {
         this.webDriver = webDriver;
     }
 
-    @FindBy(xpath = "//*[@id=\"identifierId\"]")
+    @FindBy(name = "identifier")
     private WebElement loginField;
-    @FindBy(xpath = "//*[@id=\"identifierNext\"]/div/button/div[2]")
+    @FindBy(xpath = "//*[@type=\"button\"]")
     private WebElement goLoginButton;
 
     public void inputLogin(String login) {

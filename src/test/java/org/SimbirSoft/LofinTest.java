@@ -3,15 +3,14 @@ package org.SimbirSoft;
 import org.SimbirSoft.steps.LoginStep;
 import org.SimbirSoft.steps.MailStep;
 import org.SimbirSoft.steps.NewMailStep;
+
+import org.aeonbits.owner.ConfigFactory;
+import org.apache.struts.config.impl.DefaultModuleConfigFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class LofinTest {
@@ -20,28 +19,24 @@ public class LofinTest {
     private static NewMailStep newMailStep;
     private static MailStep mailStep;
     private static WebDriver webDriver;
-    private String email;
-    private String password;
-    private String emailOfRecipient;
+    private static Cfg cfg;
 
     @BeforeClass
     public static void setup() throws NullPointerException {
-        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver.exe");
+        cfg= ConfigFactory.create(Cfg.class);
+        System.setProperty(cfg.chromeDriver(), cfg.wayToDriver());
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(cfg.waiting(), TimeUnit.SECONDS);
         loginStep = new LoginStep(webDriver);
         newMailStep = new NewMailStep(webDriver);
         mailStep = new MailStep(webDriver);
-        webDriver.get("https://gmail.com");
+        webDriver.get(cfg.website());
     }
 
     @Test
     public void test() {
-        email = "kekl26458@gmail.com";
-        password = "gfl2dasa";
-        emailOfRecipient = "kekl26458@gmail.com";
-        loginStep.accountLogin(email, password);
-        mailStep.fillingSectionsOfLetter(newMailStep.createNewLetter(), emailOfRecipient);
+        loginStep.accountLogin(cfg.email(), cfg.password());
+        mailStep.fillingSectionsOfLetter(newMailStep.createNewLetter(), cfg.emailOfRecipient());
     }
 
     @AfterClass
