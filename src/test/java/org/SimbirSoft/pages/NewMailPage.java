@@ -23,10 +23,10 @@ public class NewMailPage {
     @FindBy(xpath = "//*[@role=\"textbox\"]")
     private WebElement message;
 
-    @FindBy(xpath = "//*[@class=\"T-I J-J5-Ji aoO v7 T-I-atl L3\"]")
+    @FindBy(className = "T-I J-J5-Ji aoO v7 T-I-atl L3")
     private WebElement sendBtn;
 
-    @FindBy(xpath = "//*[@class =\"Hq aUG\"]")
+    @FindBy(className = "Hq aUG")
     private WebElement bsBtn;
 
     public void clickSendBtn() {
